@@ -20,7 +20,7 @@
 // Set your Cloudflare Workers API URL here, or use NEXT_PUBLIC_API_URL env var
 // For local development: http://localhost:8787
 // For production: https://your-api.workers.dev
-const DEFAULT_API_URL = 'http://localhost:8787';
+const DEFAULT_API_URL = 'https://localhost:8787';
 
 export const config = {
   /**

@@ -577,10 +577,10 @@ export default function HomePage() {
 				
 				// Save database after execution
 				await saveDbToStorage(currentDbKey, db);
-				await updateSchema(db);
 				
-				// Reload suggestions if this was a modifying query
+				// Only reload schema if this was a modifying query (CREATE, ALTER, UPDATE, DROP, INSERT, DELETE)
 				if (isModifyingQuery(sql)) {
+					await updateSchema(db);
 					loadSuggestions(db);
 				}
 			} else {

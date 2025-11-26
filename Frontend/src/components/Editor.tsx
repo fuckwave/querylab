@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useTheme } from '@/lib/theme';
 import type { editor } from 'monaco-editor';
@@ -48,6 +48,7 @@ export function Editor({ value, onChange, onRun, readOnly = false, height = '400
 	const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
 	const monacoRef = useRef<typeof monaco | null>(null);
 	const providerRef = useRef<monaco.IDisposable | null>(null);
+	const [monacoReady, setMonacoReady] = useState(false);
 	
 	// Combine readOnly with loading state
 	const isReadOnly = readOnly || loading;
@@ -69,9 +70,9 @@ export function Editor({ value, onChange, onRun, readOnly = false, height = '400
 		return () => window.removeEventListener('keydown', handleKeyDown);
 	}, [onRun, disableRunShortcut]);
 
-	// Setup autocomplete provider
+	// Setup autocomplete provider - runs when Monaco is ready or tables change
 	useEffect(() => {
-		if (!monacoRef.current) return;
+		if (!monacoRef.current || !monacoReady) return;
 
 		// Dispose previous provider if exists
 		if (providerRef.current) {
@@ -163,11 +164,12 @@ export function Editor({ value, onChange, onRun, readOnly = false, height = '400
 				providerRef.current = null;
 			}
 		};
-	}, [tables]);
+	}, [tables, monacoReady]);
 
 	const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor, monaco: typeof import('monaco-editor')) => {
 		editorRef.current = editor;
 		monacoRef.current = monaco;
+		setMonacoReady(true); // Mark Monaco as ready to trigger autocompletion setup
 	};
 
 	return (
