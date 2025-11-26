@@ -141,6 +141,9 @@ export default function HomePage() {
 				return null;
 			}
 			
+			// Explicitly save to storage to ensure persistence
+			await saveDbToStorage(key, db);
+			
 			return { db, key };
 		} catch (err) {
 			console.error(`Error loading prepared database ${filename}:`, err);
@@ -157,31 +160,32 @@ export default function HomePage() {
 				// Check if we have any databases
 				const existingDbs = await listAllDatabases();
 				
-				// If no databases exist, load prepared databases
+				// If no databases exist, auto-install both prepared databases
 				if (existingDbs.length === 0) {
-					// Load E-Commerce database
-					const ecommerceDb = await loadPreparedDatabase('ecommerce.sql', 'E-Commerce Database');
+					// Load both prepared databases in parallel for better performance
+					const [ecommerceDb, universityDb] = await Promise.allSettled([
+						loadPreparedDatabase('ecommerce.sql', 'E-Commerce Database'),
+						loadPreparedDatabase('university.sql', 'University Database'),
+					]);
 					
-					// Load University database
-					const universityDb = await loadPreparedDatabase('university.sql', 'University Database');
+					// Extract successful results
+					const ecommerce = ecommerceDb.status === 'fulfilled' ? ecommerceDb.value : null;
+					const university = universityDb.status === 'fulfilled' ? universityDb.value : null;
 					
-					// Use E-Commerce as default if available, otherwise University, otherwise create empty
-					if (ecommerceDb) {
-						setDb(ecommerceDb.db);
-						setCurrentDbKey(ecommerceDb.key);
-						await updateSchema(ecommerceDb.db);
-						await loadSuggestions(ecommerceDb.db);
-					} else if (universityDb) {
-						setDb(universityDb.db);
-						setCurrentDbKey(universityDb.key);
-						await updateSchema(universityDb.db);
-						await loadSuggestions(universityDb.db);
+					// Use E-Commerce as default if available, otherwise University
+					if (ecommerce) {
+						setDb(ecommerce.db);
+						setCurrentDbKey(ecommerce.key);
+						await updateSchema(ecommerce.db);
+						await loadSuggestions(ecommerce.db);
+					} else if (university) {
+						setDb(university.db);
+						setCurrentDbKey(university.key);
+						await updateSchema(university.db);
+						await loadSuggestions(university.db);
 					} else {
-						// Fallback: create empty database
-						const { db: emptyDb, key: emptyKey } = await createNamedDb('My Database');
-						setDb(emptyDb);
-						setCurrentDbKey(emptyKey);
-						await updateSchema(emptyDb);
+						// Both failed to load - show error but don't create empty database
+						setError('Failed to load prepared databases. Please refresh the page or try importing a database manually.');
 					}
 				} else {
 					// Load the first available database (most recent)
@@ -192,13 +196,25 @@ export default function HomePage() {
 						await updateSchema(firstDb);
 						await loadSuggestions(firstDb);
 					} else {
-						// If first DB failed to load, try to load prepared databases
-						const ecommerceDb = await loadPreparedDatabase('ecommerce.sql', 'E-Commerce Database');
-						if (ecommerceDb) {
-							setDb(ecommerceDb.db);
-							setCurrentDbKey(ecommerceDb.key);
-							await updateSchema(ecommerceDb.db);
-							await loadSuggestions(ecommerceDb.db);
+						// If first DB failed to load, try to install prepared databases
+						const [ecommerceDb, universityDb] = await Promise.allSettled([
+							loadPreparedDatabase('ecommerce.sql', 'E-Commerce Database'),
+							loadPreparedDatabase('university.sql', 'University Database'),
+						]);
+						
+						const ecommerce = ecommerceDb.status === 'fulfilled' ? ecommerceDb.value : null;
+						const university = universityDb.status === 'fulfilled' ? universityDb.value : null;
+						
+						if (ecommerce) {
+							setDb(ecommerce.db);
+							setCurrentDbKey(ecommerce.key);
+							await updateSchema(ecommerce.db);
+							await loadSuggestions(ecommerce.db);
+						} else if (university) {
+							setDb(university.db);
+							setCurrentDbKey(university.key);
+							await updateSchema(university.db);
+							await loadSuggestions(university.db);
 						}
 					}
 				}
