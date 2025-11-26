@@ -114,6 +114,50 @@ export default function HomePage() {
 	const [showAuthError, setShowAuthError] = useState(false);
 	const [authError, setAuthError] = useState<{ code?: string; message?: string } | null>(null);
 	const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+	const [loadingTitleIndex, setLoadingTitleIndex] = useState(0);
+
+	// Get dynamic, exciting title based on context
+	const getLoadingTitle = useCallback((message: string, isInitializing: boolean): string => {
+		// Context-aware titles based on what's happening
+		if (isInitializing) {
+			if (message.includes('Installing') || message.includes('Database')) {
+				return '🚀 Powering Up Your SQL Journey!';
+			}
+			if (message.includes('Finalizing')) {
+				return '✨ Almost There!';
+			}
+			return '🎯 Getting Ready for Action!';
+		}
+		
+		// Dynamic titles for normal loading
+		const titles = [
+			'⚡ QueryLab is Loading!',
+			'🔥 Powering Up Your Workspace!',
+			'🚀 Almost Ready to Query!',
+			'💫 Preparing Something Amazing!',
+			'✨ Getting Everything Ready!',
+		];
+		
+		// Context-based titles
+		if (message.includes('Connecting')) {
+			return '🔌 Connecting to Your Database!';
+		}
+		if (message.includes('Loading schema')) {
+			return '📊 Analyzing Your Schema!';
+		}
+		if (message.includes('Preparing')) {
+			return '⚙️ Preparing Query Engine!';
+		}
+		if (message.includes('Setting up')) {
+			return '🎨 Setting Up Your Workspace!';
+		}
+		if (message.includes('Almost ready')) {
+			return '🎉 Almost Ready!';
+		}
+		
+		// Fallback to rotating titles
+		return titles[loadingTitleIndex % titles.length];
+	}, [loadingTitleIndex]);
 
 	// Listen for open-login event from CodeVerificationModal
 	useEffect(() => {
@@ -990,7 +1034,7 @@ export default function HomePage() {
 		return () => window.removeEventListener('keydown', handleKeyDown);
 	}, [db, currentDbKey]);
 
-	// Rotate loading messages
+	// Rotate loading messages and titles
 	useEffect(() => {
 		if (!loading) return;
 		
@@ -1004,6 +1048,7 @@ export default function HomePage() {
 		
 		const interval = setInterval(() => {
 			setLoadingMessageIndex((prev) => (prev + 1) % messages.length);
+			setLoadingTitleIndex((prev) => prev + 1);
 		}, 1500);
 		
 		return () => clearInterval(interval);
@@ -1051,7 +1096,7 @@ export default function HomePage() {
 						</div>
 						
 						<div className="space-y-2">
-							<p className="text-xl font-bold text-foreground">Welcome to QueryLab!</p>
+							<p className="text-xl font-bold text-foreground">{getLoadingTitle(initProgress.message, true)}</p>
 							<p className="text-base text-muted-foreground">{initProgress.message || 'Setting up your learning environment...'}</p>
 						</div>
 						
@@ -1100,7 +1145,7 @@ export default function HomePage() {
 						</div>
 					</div>
 					<div className="space-y-3">
-						<p className="text-2xl font-bold text-foreground">Welcome to QueryLab</p>
+						<p className="text-2xl font-bold text-foreground">{getLoadingTitle(messages[loadingMessageIndex], false)}</p>
 						<div className="h-8 flex items-center justify-center">
 							<p className="text-base text-muted-foreground transition-opacity duration-500">
 								{messages[loadingMessageIndex]}
