@@ -10,7 +10,7 @@
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-Edge-orange?style=for-the-badge&logo=cloudflare)](https://workers.cloudflare.com/)
 [![Hono](https://img.shields.io/badge/Hono-Framework-00d4aa?style=for-the-badge)](https://hono.dev/)
 
-**[🌐 Live Demo](#)** • **[📖 Documentation](#-documentation)** • **[🚀 Getting Started](#-quick-start)**
+**[🌐 Live Demo](https://querylab.zamdev.dev)** • **[📖 Documentation](#-documentation)** • **[🚀 Getting Started](#-quick-start)**
 
 </div>
 
@@ -159,5 +159,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🤝 Contributing
 
 Contributions welcome! Please open an issue or submit a PR.
+
 
 
